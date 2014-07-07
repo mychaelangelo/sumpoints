@@ -34,9 +34,14 @@ end
 # Use Postgres as the database for Active Record
 gem 'pg'
 
+# To serve assets properly on Heroku
 group :production do
   gem 'rails_12factor'
 end
+
+# For Bootstrap framework
+gem 'bootstrap-sass', '~> 3.2.0'
+
 
 
 # Use ActiveModel has_secure_password

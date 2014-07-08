@@ -2,5 +2,12 @@
 <p>This is the home page for SumPoints</p>
 
 <% @posts.each do |post| %>
-  <p><%= link_to post.title, post %></p>
+  <p>
+    <%= link_to post.title, post %>
+    <small>
+      <br>
+      [x hours] ago by [user] |
+      <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
+    </small>
+  </p>
 <% end %>

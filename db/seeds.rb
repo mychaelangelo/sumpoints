@@ -6,3 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'faker'
+
+# Create Posts
+50.times do
+  Post.create(
+    title: Faker::Lorem.sentence,
+    url: Faker::Internet.url
+  )
+end
+posts = Post.all
+
+# Create sumpoints
+100.times do
+  Sumpoint.create(
+    post: posts.sample,
+    body: Faker::Lorem.sentence
+  )
+end
+
+puts "Seed finished"
+puts "#{Post.count} posts created"
+puts "#{Sumpoint.count} sumpoints created"

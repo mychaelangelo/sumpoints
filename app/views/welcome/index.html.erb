@@ -7,7 +7,23 @@
     <small>
       <br>
       [x hours] ago by [user] |
-      <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
+      <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %> |
+
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Show/Hide SumPoint
+        </a>
+
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <% post.sumpoints.each do |sumpoint| %>
+              <ul>
+                <li><%= sumpoint.body %></li>
+              </ul>
+            <% end %>
+
+          </div>
+        </div>
+
     </small>
   </p>
 <% end %>

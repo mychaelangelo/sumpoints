@@ -8,11 +8,13 @@
 
 require 'faker'
 
+
 # Create Posts
 50.times do
   Post.create(
     title: Faker::Lorem.sentence,
     url: Faker::Internet.url
+    # will need to set type: also!
   )
 end
 posts = Post.all
@@ -24,6 +26,8 @@ posts = Post.all
     body: Faker::Lorem.sentence
   )
 end
+
+
 
 puts "Seed finished"
 puts "#{Post.count} posts created"

@@ -37,16 +37,21 @@
                   <li><a href="#">Content Type</a></li>
                 </ul>
               </li>
-
             </ul>
+
+            <!-- user info area -->
             <ul class="nav navbar-nav navbar-right">
-              <p class="navbar-text">Welcome -User-!</p>
-              <li><a href="#">Signin</a></li>
-              <li><a href="#">Sign out</a></li>
-              <li><a href="#">etc</a></li>
+              <% if current_user %>
+                <p class="navbar-text">Hi <%= current_user.name %>!</p>
+                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %>
+              <% end %>
             </ul>
-          </div><!--/.nav-collapse -->
 
+
+          </div><!--/.nav-collapse -->
         </div><!-- /.container-fluid -->
       </nav>  
       <!-- MENU End-->

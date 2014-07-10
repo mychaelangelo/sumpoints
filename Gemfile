@@ -48,6 +48,9 @@ gem 'faker'
 # Gem for User logins
 gem 'devise'
 
+# Gem Figaro for secure env variables
+gem 'figaro'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

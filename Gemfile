@@ -45,6 +45,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 # Faker Gem for seeding DB
 gem 'faker'
 
+# Gem for User logins
+gem 'devise'
 
 
 # Use ActiveModel has_secure_password

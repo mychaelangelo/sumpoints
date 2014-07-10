@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   # App always needs a root path to work on Heroku
   # this will be the default page for the app
   root to: 'welcome#index'

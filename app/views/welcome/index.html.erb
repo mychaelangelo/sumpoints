@@ -1,28 +1,31 @@
-<h1>Welcome to SumPoints</h1>
-<p>This is the home page for SumPoints</p>
+
 
 <% @posts.each do |post| %>
-  <p>
-    <%= link_to post.title, post %>
-    <small>
-      <br>
-      [x hours] ago by [user] |
-      <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %> |
+  <div class="panel panel-default">
+    
+    <div class="panel-heading">
+        <h3 class="panel-title"><%= link_to post.title, post %></h3>
+    </div>
 
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Show/Hide SumPoint
-        </a>
+    <!-- Sumpoints area -->
+    <div class="panel-body">
+      <% post.sumpoints.each do |sumpoint| %>
+        <ul>
+          <li><%= sumpoint.body %></li>
+        </ul>
+      <% end %>
+    </div>
 
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <% post.sumpoints.each do |sumpoint| %>
-              <ul>
-                <li><%= sumpoint.body %></li>
-              </ul>
-            <% end %>
-          </div>
-        </div>
+    <!-- Footer for Post -->
+    <div class="panel-footer">
+      <small>
+        Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> |
+        <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
+      </small>
+    </div>
 
-    </small>
-  </p>
+
+
+  </div>
+
 <% end %>

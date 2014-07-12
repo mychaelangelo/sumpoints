@@ -8,10 +8,23 @@
 
 require 'faker'
 
+# Create Users
+5.times do
+  user = User.new(
+    name:     Faker::Name.name,
+    email:    Faker::Internet.email,
+    password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save
+end
+users = User.all
+
 
 # Create Posts
 50.times do
   Post.create(
+    user: users.sample,
     title: Faker::Lorem.sentence,
     url: Faker::Internet.url
     # will need to set type: also!
@@ -19,7 +32,7 @@ require 'faker'
 end
 posts = Post.all
 
-# Create sumpoints
+# Create Sumpoints
 100.times do
   Sumpoint.create(
     post: posts.sample,
@@ -27,8 +40,18 @@ posts = Post.all
   )
 end
 
+# Create an admin user
+admin = User.new(
+  name: 'Michael',
+  email: 'admin@example.com',
+  password: 'password',
+  )
+admin.skip_confirmation!
+admin.save
+
 
 
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Sumpoint.count} sumpoints created"

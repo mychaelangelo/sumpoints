@@ -9,18 +9,18 @@
     <%= f.text_field :url, class: 'form-control', placeholder: "Enter source URL" %>
   </div>
 
-  <!-- Select Content Type -->
+  <!-- Select Format Type (1 is Article, 2 is Book, 3 is Video, and 4 is Audio) -->
   <div class="form-group">
-    <%= f.radio_button :content_type, 'Article' %> 
+    <%= f.radio_button :format_id, 1 %> 
     <%= f.label :Article %>
 
-    <%= f.radio_button :content_type, 'Book' %> 
+    <%= f.radio_button :format_id, 2 %> 
     <%= f.label :Book %>
 
-    <%= f.radio_button :content_type, 'Video' %> 
+    <%= f.radio_button :format_id, 3 %> 
     <%= f.label :Video %>
 
-    <%= f.radio_button :content_type, 'Audio' %> 
+    <%= f.radio_button :format_id, 4 %> 
     <%= f.label :Audio %>
   </div>
 

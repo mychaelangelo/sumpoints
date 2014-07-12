@@ -1,4 +1,5 @@
 
+<h3>Articles</h3>
 
 <% @posts.each do |post| %>
   <div class="panel panel-default">
@@ -20,7 +21,7 @@
     <div class="panel-footer">
       <small>
         Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> in 
-        <%= link_to post.format.name, '#' %> |
+        <%= link_to post.format.name, articles_path %> |
         <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
       </small>
     </div>

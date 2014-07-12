@@ -1,7 +1,7 @@
 <h1>Edit Post</h1>
 
 <%= form_for @post do |f| %>
-  <div class="form-group">
+  <div class="form-group"> 
     <%= f.label :Title %>
     <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
   </div>
@@ -13,16 +13,16 @@
 
   <!-- Select Content Type -->
   <div class="form-group">
-    <%= f.radio_button :content_type, 'Article' %> 
+    <%= f.radio_button :format_id, 1 %> 
     <%= f.label :Article %>
 
-    <%= f.radio_button :content_type, 'Book' %> 
+    <%= f.radio_button :format_id, 2 %> 
     <%= f.label :Book %>
 
-    <%= f.radio_button :content_type, 'Video' %> 
+    <%= f.radio_button :format_id, 3 %> 
     <%= f.label :Video %>
 
-    <%= f.radio_button :content_type, 'Audio' %> 
+    <%= f.radio_button :format_id, 4 %> 
     <%= f.label :Audio %>
   </div>
 
@@ -33,6 +33,6 @@
   
   <!-- SumPoints Area -->
   <div class="form-group">
-    <%= f.submit "Submit", class: 'btn btn-success' %>
+    <%= f.submit "Update", class: 'btn btn-success' %>
   </div>
 <% end %>

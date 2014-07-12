@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # routes for posts (index, show, new, edit)
   resources :posts
 
+  # paths for users
+  resources :users, only: [:update]
+
 end

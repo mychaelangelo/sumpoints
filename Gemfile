@@ -51,6 +51,8 @@ gem 'devise'
 # Gem Figaro for secure env variables
 gem 'figaro'
 
+# Gem to authorize different users
+gem 'pundit'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

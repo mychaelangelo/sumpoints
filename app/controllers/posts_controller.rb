@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @posts = Post.all
+    authorize @posts
   end
 
   def show
@@ -9,10 +10,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    # authorize checks the policy on new post resources 
+    # and will throw exception if policy not met (e.g. no user logged in)
+    authorize @post 
   end
 
   def create
     @post = current_user.posts.build(params.require(:post).permit(:title, :url, :content_type))
+    authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post
@@ -24,10 +29,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def update
     @post = Post.find(params[:id])
+    authorize @post
     if @post.update_attributes(params.require(:post).permit(:title, :url, :content_type))
       flash[:notice] = "Post was updated."
       redirect_to @post

@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
+
+  def role?(base_role)
+    # Implied self i.e. don't have to write self.role
+    role == base_role.to_s
+  end
+
 end

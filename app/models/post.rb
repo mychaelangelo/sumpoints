@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  has_many :sumpoints
+  
+  has_many :sumpoints, dependent: :destroy # the dependent means if we delete post, it deletes sumpoints too
   belongs_to :user
   belongs_to :format
 

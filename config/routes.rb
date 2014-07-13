@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get '/videos' => 'formats#videos'
   get '/audio' => 'formats#audio'
 
-
+  # Paths for tags
+  get 'tags/:tag' => 'welcome#index', as: :tag
 
   # routes for posts (index, show, new, edit)
   resources :posts

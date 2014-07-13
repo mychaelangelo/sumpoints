@@ -36,6 +36,7 @@ formats = Format.all
     user: users.sample,
     title: Faker::Lorem.sentence,
     url: Faker::Internet.url,
+    tag_list: [Faker::Lorem.word, Faker::Lorem.word, Faker::Lorem.word],
     format: formats.sample
   )
 end

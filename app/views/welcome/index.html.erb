@@ -1,5 +1,13 @@
 
+      <div id="tag_cloud">
+        <% tag_cloud Post.tag_counts_on(:tags).order('count desc').limit(10), %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: "label label-default" %>
+        <% end %>
+      </div>
 
+<hr>
+
+ 
 <% @posts.each do |post| %>
   <div class="panel panel-default">
     
@@ -21,6 +29,7 @@
       <small>
         Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> in 
         <%= link_to post.format.name, '#' %> |
+        Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> |
         <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
       </small>
     </div>

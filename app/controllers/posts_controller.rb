@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-    authorize @posts
+    # if enter url like http://localhost:3000/tags/motivation then filter
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+      authorize @posts
+    else
+      @posts = Post.all
+      authorize @posts
+    end
   end
 
   def show
@@ -47,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :url, :format_id)
+    params.require(:post).permit(:title, :url, :format_id, :tag_list)
   end
 
 end

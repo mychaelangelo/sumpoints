@@ -1,0 +1,2 @@
+class FollowedpostPolicy < ApplicationPolicy
+end

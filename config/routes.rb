@@ -16,9 +16,12 @@ Rails.application.routes.draw do
 
   # routes for posts (index, show, new, edit)
   resources :posts do
-      # post vote routes
+    # post vote routes
     get '/up-postvote' => 'postvotes#up_postvote', as: :up_postvote
     get '/down-postvote' => 'postvotes#down_postvote', as: :down_postvote
+
+    # following a post
+    resources :followedposts, only: [:create, :destroy]
   end
 
   # paths for users

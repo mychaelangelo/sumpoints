@@ -7,6 +7,16 @@
   </p>
 <% end %>
 
+  <!-- Sum points section -->
+  <%= f.simple_fields_for :sumpoints do |sumpoint| %>
+    <%= render 'sumpoint_fields', :f => sumpoint %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'Add sumpoint', f, :sumpoints %>
+  </div>
+  <hr>
+  <!-- Sumpoint section end -->
+
 <% if policy(@post).edit? %>
   <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
 <% end %>
@@ -16,9 +26,10 @@
 <% end %>
 
 <div>
-  <h3><%= pluralize(@post.points, 'point') %></h3>
+  <h4><%= pluralize(@post.points, 'point') %></h4>
   <small>
     <%= pluralize(@post.up_postvotes, 'up vote') %>, 
     <%= pluralize(@post.down_postvotes, 'down vote') %>
   </small>
 </div>
+<%= render partial: 'followedposts/followpost', locals: { post: @post } %>

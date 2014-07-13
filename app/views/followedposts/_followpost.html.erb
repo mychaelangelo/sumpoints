@@ -3,12 +3,12 @@
   <div class="follow">
     <% if followedpost = current_user.followed_post(post) %>
       <%= link_to [post, followedpost], class: 'btn btn-danger', method: :delete do %>
-        <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfollow
+        <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfollow Post
       <% end %>
 
     <% else %>
       <%= link_to [post, Followedpost.new], class: 'btn btn-primary', method: :post do %>
-        <i class="glyphicon glyphicon-star"> </i>&nbsp; Follow
+        <i class="glyphicon glyphicon-star"> </i>&nbsp; Follow Post
       <% end %>
 
     <% end %>

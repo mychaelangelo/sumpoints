@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
+  has_many :postvotes, dependent: :destroy
+
 
   def role?(base_role)
     # Implied self i.e. don't have to write self.role

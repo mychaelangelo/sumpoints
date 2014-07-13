@@ -32,13 +32,16 @@ formats = Format.all
 
 # Create Posts
 50.times do
-  Post.create(
+  post = Post.create(
     user: users.sample,
     title: Faker::Lorem.sentence,
     url: Faker::Internet.url,
     tag_list: [Faker::Lorem.word, Faker::Lorem.word, Faker::Lorem.word],
     format: formats.sample
   )
+  # set the created_at to a time within the past year
+  post.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+  post.update_rank
 end
 posts = Post.all
 

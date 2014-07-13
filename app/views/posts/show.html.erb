@@ -1,3 +1,4 @@
+<%= render partial: 'votes/voter', locals: { post: @post } %>
 <h1><%= @post.title %></h1>
 
 <% @post.sumpoints.each do |sumpoint| %>
@@ -13,3 +14,11 @@
 <% if policy(@post).destroy? %>
   <%= link_to "Delete Post", @post, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?'} %>
 <% end %>
+
+<div>
+  <h3><%= pluralize(@post.points, 'point') %></h3>
+  <small>
+    <%= pluralize(@post.up_postvotes, 'up vote') %>, 
+    <%= pluralize(@post.down_postvotes, 'down vote') %>
+  </small>
+</div>

@@ -15,9 +15,15 @@ Rails.application.routes.draw do
   get 'tags/:tag' => 'welcome#index', as: :tag
 
   # routes for posts (index, show, new, edit)
-  resources :posts
+  resources :posts do
+      # post vote routes
+    get '/up-postvote' => 'postvotes#up_postvote', as: :up_postvote
+    get '/down-postvote' => 'postvotes#down_postvote', as: :down_postvote
+  end
 
   # paths for users
   resources :users, only: [:update]
+
+
 
 end

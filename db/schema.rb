@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712222623) do
+ActiveRecord::Schema.define(version: 20140713142959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,22 @@ ActiveRecord::Schema.define(version: 20140712222623) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "format_id"
+    t.float    "rank"
   end
 
   add_index "posts", ["format_id"], name: "index_posts_on_format_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "postvotes", force: true do |t|
+    t.integer  "value"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "postvotes", ["post_id"], name: "index_postvotes_on_post_id", using: :btree
+  add_index "postvotes", ["user_id"], name: "index_postvotes_on_user_id", using: :btree
 
   create_table "sumpoints", force: true do |t|
     t.text     "body"

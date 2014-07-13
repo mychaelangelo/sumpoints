@@ -63,6 +63,8 @@ gem 'simple_form'
 # Nested forms gem
 gem "cocoon"
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

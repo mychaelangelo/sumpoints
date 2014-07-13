@@ -10,4 +10,11 @@ class Post < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
 
+  # Validating inputs (can submit post without a sumpoint)
+  validates :title, presence: true
+  validates_format_of :url, :with => URI::regexp(%w(http https))
+  validates :format_id, presence: true
+  validates :user, presence: true
+  validates_presence_of :sumpoints
+
 end

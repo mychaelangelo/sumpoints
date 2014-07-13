@@ -1,6 +1,6 @@
 
 <div id="tag_cloud">
-  <% tag_cloud Post.tag_counts_on(:tags).order('count desc').limit(10), %w[s m l] do |tag, css_class| %>
+  Top 10 Tags:<% tag_cloud Post.tag_counts_on(:tags).order('count desc').limit(10), %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: "label label-default" %>
   <% end %>
 </div>
@@ -10,7 +10,6 @@
  
 <% @posts.each do |post| %>
 
-
   <%= render partial: 'votes/voter', locals: { post: post } %>
     
   <div class="panel panel-default">
@@ -18,6 +17,7 @@
     <div class="panel-heading">
         <h3 class="panel-title">
           <%= link_to post.title, post %> 
+
         </h3>
     </div>
 
@@ -33,6 +33,7 @@
     <!-- Footer for Post -->
     <div class="panel-footer">
       <small>
+        <span class="label label-info"><%= pluralize(post.points, 'Point') %></span> |
         Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> in 
         <%= link_to post.format.name, '#' %> |
         Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> |

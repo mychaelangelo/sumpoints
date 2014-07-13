@@ -1,14 +1,12 @@
 <%if policy(Post.new).create? %>
   <div class="vote-arrows pull-left">
     <div><%= link_to " ", post_up_postvote_path(post), class: 'glyphicon glyphicon-chevron-up' %></div>
-    <span class="badge"><%= post.points %></span>
     <div><%= link_to " ", post_down_postvote_path(post), class: 'glyphicon glyphicon-chevron-down' %></div>
   </div>
 
 <% else %>
     <div class="vote-arrows pull-left">
       <div><%= link_to " ", new_user_registration_path, class: 'glyphicon glyphicon-chevron-up' %></div>
-      <span class="badge"><%= post.points %></span>
       <div><%= link_to " ", new_user_registration_path, class: 'glyphicon glyphicon-chevron-down' %></div>
     </div>
 <% end %>

@@ -8,7 +8,7 @@ body { padding-top: 70px; }
 
 // vote arrows
 .vote-arrows {
-  width: 30px;
+  width: 20px;
   text-align: center;
 }
 
@@ -16,3 +16,19 @@ body { padding-top: 70px; }
 .follow {
   margin-top: 20px;
 }
+
+// make thumbs glyphicons smaller
+.glyphicon-chevron-up {
+    font-size: 0.8em;
+}
+
+.glyphicon-chevron-down {
+    font-size: 0.8em;
+}
+
+// votes badge
+span.badge {
+    font-size: 0.8em;
+}
+
+

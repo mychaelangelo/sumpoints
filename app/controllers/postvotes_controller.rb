@@ -25,10 +25,12 @@ class PostvotesController < ApplicationController
     if @postvote # if already voted, update it
       authorize @postvote, :update?
       @postvote.update_attribute(:value, new_value)
+      flash[:notice] = "Your vote was updated."
     else # create new vote
       @postvote = current_user.postvotes.build(value: new_value, post: @post)
       authorize @postvote, :create?
       @postvote.save
+      flash[:notice] = "Your vote was recorded."
     end
   end
 

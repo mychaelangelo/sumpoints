@@ -57,6 +57,12 @@ gem 'pundit'
 # Tags gem
 gem 'acts-as-taggable-on'
 
+# Forms gem (from https://github.com/plataformatec/simple_form)
+gem 'simple_form'
+
+# Nested forms gem
+gem "cocoon"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

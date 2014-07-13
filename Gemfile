@@ -63,6 +63,9 @@ gem 'simple_form'
 # Nested forms gem
 gem "cocoon"
 
+# Paginate gem
+gem 'will_paginate', '~> 3.0.5'
+
 
 
 # Use ActiveModel has_secure_password

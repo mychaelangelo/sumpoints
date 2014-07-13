@@ -27,7 +27,11 @@
             <ul class="nav navbar-nav">
               <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
               <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
-              <li><a href="#">Latest Posts</a></li>
+              
+              <li class="<%= 'active' if current_page?(posts_latest_path) %>">
+                <%= link_to "Latest Posts", posts_latest_path %>
+              </li>
+              
               <li><a href="#">Top SumPoints</a></li>
 
               <!-- if user can create new post, link to new post, otherwise redirect to signup -->

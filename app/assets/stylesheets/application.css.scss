@@ -26,9 +26,8 @@ body { padding-top: 70px; }
     font-size: 0.8em;
 }
 
-// votes badge
-span.badge {
-    font-size: 0.8em;
+.span:nth-child(even) {
+  background-color: #428bca;
 }
 
 

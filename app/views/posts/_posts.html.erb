@@ -1,0 +1,41 @@
+<% posts.each do |post| %>
+
+  <%= render partial: 'votes/voter', locals: { post: post } %>
+    
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= link_to post.title, post %> 
+        </h3>
+    </div>
+
+    <!-- Sumpoints area -->
+    <div class="panel-body">
+      <% post.sumpoints.each do |sumpoint| %>
+        <ul>
+          <li>
+            <%= sumpoint.body %>
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+          </li>
+          <small>13 Likes</small>
+        </ul>
+      <% end %>
+    </div>
+
+    <!-- Footer for Post -->
+    <div class="panel-footer">
+      <small>
+        <span class="label label-info"><%= pluralize(post.points, 'Point') %></span> |
+        Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> in 
+        <%= link_to post.format.name, '#' %> |
+        Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> |
+        <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
+      </small>
+    </div>
+
+  </div>
+<% end %>
+
+<%= will_paginate @posts %>

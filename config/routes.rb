@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get '/videos' => 'formats#videos'
   get '/audio' => 'formats#audio'
 
-  #get "posts/:order" => "posts#index"
+  # Path to view latest posts
+  get "posts/latest" => "posts#latest"
+  
+
   # Paths for tags
   get 'tags/:tag' => 'welcome#index', as: :tag
 

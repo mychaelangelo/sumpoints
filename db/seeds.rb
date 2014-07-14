@@ -49,7 +49,8 @@ posts = Post.all
 100.times do
   Sumpoint.create(
     post: posts.sample,
-    body: Faker::Lorem.sentence
+    user: users.sample,
+    body: Faker::Lorem.sentence 
   )
 end
 

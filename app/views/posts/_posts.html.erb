@@ -15,13 +15,13 @@
       <% post.sumpoints.each do |sumpoint| %>
         <ul>
           <li>
-            <%= sumpoint.body %>
-            
+            <%= sumpoint.body %><br>
+            <small>Posted by <%= sumpoint.user.name %></small>
           </li>
 
           <small>
-            <small>234</small>
             <span class="glyphicon glyphicon-thumbs-up"></span> 
+            <small>234 &nbsp;&nbsp;</small>
             <span class="glyphicon glyphicon-thumbs-down"></span> 
             <small>43</small>
 

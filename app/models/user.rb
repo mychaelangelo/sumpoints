@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :postvotes, dependent: :destroy
   has_many :followedposts, dependent: :destroy
+  has_many :sumpoints
 
 
   def role?(base_role)

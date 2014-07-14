@@ -16,10 +16,23 @@
         <ul>
           <li>
             <%= sumpoint.body %>
-            <span class="glyphicon glyphicon-thumbs-up"></span>
-            <span class="glyphicon glyphicon-thumbs-down"></span>
+            
           </li>
-          <small>13 Likes</small>
+          <small>
+            234 <span class="glyphicon glyphicon-thumbs-up"></span> 
+            43 <span class="glyphicon glyphicon-thumbs-down"></span> 
+
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: 90%">
+                <span class="sr-only">90% Complete (success)</span>
+              </div>
+
+              <div class="progress-bar progress-bar-danger" style="width: 10%">
+                <span class="sr-only">10% Complete (danger)</span>
+              </div>
+            </div>
+
+          </small>
         </ul>
       <% end %>
     </div>

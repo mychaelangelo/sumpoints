@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'sumpoints/index'
+
   devise_for :users
   # App always needs a root path to work on Heroku
   # this will be the default page for the app
@@ -30,6 +32,9 @@ Rails.application.routes.draw do
 
   # paths for users
   resources :users, only: [:update]
+
+  # routes for sumpoints
+  resources :sumpoints
 
 
 

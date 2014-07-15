@@ -1,0 +1,2 @@
+module SumpointsHelper
+end

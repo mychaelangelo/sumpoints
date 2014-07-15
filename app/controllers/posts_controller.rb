@@ -24,11 +24,21 @@ class PostsController < ApplicationController
     # authorize checks the policy on new post resources 
     # and will throw exception if policy not met (e.g. no user logged in)
     authorize @post 
+    
   end
 
   def create
+    # Build post object
     @post = current_user.posts.build(post_params)
+    
+    # Associate all sumpoints with current user
+    @post.sumpoints.each do |sumpoint|
+      sumpoint.user = current_user
+    end
+
+    # Authorise the post
     authorize @post
+
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post
@@ -65,14 +75,14 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "There was an error deleting the post."
-      render :show
+      render :show 
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :url, :format_id, :tag_list, sumpoints_attributes: [:id, :body, :_destroy])
+    params.require(:post).permit(:title, :user_id, :url, :format_id, :tag_list, sumpoints_attributes: [:id, :body, :_destroy])
   end
 
 end

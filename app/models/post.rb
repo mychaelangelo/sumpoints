@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :format
   has_many :postvotes, dependent: :destroy
   has_many :followedposts, dependent: :destroy
+  
 
   # allows you to save attributes on associated records through the parent
   accepts_nested_attributes_for :sumpoints, :reject_if => :all_blank, :allow_destroy => true

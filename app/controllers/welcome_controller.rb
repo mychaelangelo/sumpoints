@@ -9,6 +9,9 @@ class WelcomeController < ApplicationController
       @posts = Post.paginate(page: params[:page], per_page: 10)
       authorize @posts
     end
+
+    @sumpoints = Sumpoint.all.paginate(page: params[:page], per_page: 10)
+
   end
 
   def about

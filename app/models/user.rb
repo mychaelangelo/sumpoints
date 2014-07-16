@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
+  # depdent: :destroy means when a user is deleted, so is his associated objects
   has_many :postvotes, dependent: :destroy
   has_many :followedposts, dependent: :destroy
   has_many :sumpoints
+  has_many :likes, dependent: :destroy
 
 
   def role?(base_role)

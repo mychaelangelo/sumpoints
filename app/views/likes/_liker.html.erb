@@ -1,0 +1,39 @@
+<%if policy(Sumpoint.new).create? %>
+  <small>
+    <!-- like/dislike area -->
+    <%= link_to " ", post_sumpoint_up_like_path(post, sumpoint), class: 'glyphicon glyphicon-thumbs-up' %> 
+    <small><%= sumpoint.up_likes %></small>
+    &nbsp;&nbsp;
+    <%= link_to " ", post_sumpoint_down_like_path(post, sumpoint), class: 'glyphicon glyphicon-thumbs-down' %>
+    <small><%= sumpoint.down_likes %></small>
+    <!--end of likes -->
+
+    <!--progress bar -->
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" style="width: <%= sumpoint.portion_of_likes %>%">
+        <span class="sr-only">10% Thumbs Up</span>
+      </div>
+    </div>
+    <!-- end of bar -->
+  </small>
+
+<!-- if not signed in, then thumbs link to sign up page -->
+  <% else %>
+    <small>
+      <!-- like/dislike area -->
+      <%= link_to " ", new_user_registration_path, class: 'glyphicon glyphicon-thumbs-up' %> 
+      <small><%= sumpoint.up_likes %></small>
+      &nbsp;&nbsp;
+      <%= link_to " ", new_user_registration_path, class: 'glyphicon glyphicon-thumbs-down' %>
+      <small><%= sumpoint.down_likes %></small>
+      <!--end of likes -->
+
+      <!--progress bar -->
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width: <%= sumpoint.portion_of_likes %>%">
+          <span class="sr-only">10% Thumbs Up</span>
+        </div>
+      </div>
+      <!-- end of bar -->
+    </small>
+<%end%>

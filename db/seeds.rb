@@ -47,11 +47,13 @@ posts = Post.all
 
 # Create Sumpoints
 100.times do
-  Sumpoint.create(
+  sumpoint = Sumpoint.create(
     post: posts.sample,
     user: users.sample,
     body: Faker::Lorem.sentence 
   )
+  sumpoint.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+  sumpoint.update_rank
 end
 
 # Create an admin user

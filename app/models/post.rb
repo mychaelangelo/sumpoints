@@ -25,6 +25,7 @@ class Post < ActiveRecord::Base
   validates :user, presence: true
   validates_presence_of :sumpoints
 
+  #### POST VOTES SECTION
   # when user submits a post, he automatically votes up for it
   after_create :create_postvote
 
@@ -48,6 +49,7 @@ class Post < ActiveRecord::Base
     # update the rank
     self.update_attribute(:rank, new_rank)
   end
+
 
   private
   #private methods

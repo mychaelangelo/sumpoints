@@ -10,11 +10,13 @@ Rails.application.routes.draw do
 
   get '/articles' => 'formats#articles'
   get '/books' => 'formats#books'
-  get '/videos' => 'formats#videos'
+  get '/videos' => 'formats#videos' 
   get '/audio' => 'formats#audio'
 
   # Path to view latest posts
   get "posts/latest" => "posts#latest"
+
+
   
 
   # Paths for tags
@@ -28,6 +30,13 @@ Rails.application.routes.draw do
 
     # following a post
     resources :followedposts, only: [:create, :destroy]
+
+    resources :sumpoints do
+      get '/up-like' => 'likes#up_like', as: :up_like
+      get '/down-like' => 'likes#down_like', as: :down_like
+    end
+
+
   end
 
   # paths for users

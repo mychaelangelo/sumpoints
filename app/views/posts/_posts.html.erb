@@ -18,24 +18,9 @@
             <%= sumpoint.body %><br>
             <small>Posted by <%= sumpoint.user.name %></small>
           </li>
-
-          <small>
-            <span class="glyphicon glyphicon-thumbs-up"></span> 
-            <small>234 &nbsp;&nbsp;</small>
-            <span class="glyphicon glyphicon-thumbs-down"></span> 
-            <small>43</small>
-
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" style="width: 70%">
-                <span class="sr-only">90% Complete (success)</span>
-              </div>
-            </div>
-          </small>
+          <%= render partial: 'likes/liker', locals: { post: post, sumpoint: sumpoint } %>
         </ul>
       <% end %>
-
-
-
     </div>
 
     <!-- Footer for Post -->

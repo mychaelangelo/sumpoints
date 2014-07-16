@@ -14,7 +14,7 @@ class PostvotesController < ApplicationController
   private
   # private methods below
 
-  def setup
+  def setup 
     # Grab post
     @post = Post.find(params[:post_id])
     # Look for existing vote by current user, so don't create multiple votes

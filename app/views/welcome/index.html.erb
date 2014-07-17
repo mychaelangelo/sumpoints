@@ -7,32 +7,22 @@
 <hr>
 
 <div class="row">
-
   <!-- Sumpoints area-->
-  <div class="col-md-8">
-
-     
+  <div class="col-md-12">
     <% @sumpoints.each do |sumpoint| %>
       <div class="panel panel-default">
         <div class="panel-body">
-          <%= sumpoint.body %><br>
+          <h4><%= sumpoint.body %></h4>
           <small>Posted by <%= sumpoint.user.name %></small> via 
           <%= link_to sumpoint.post.title, sumpoint.post %>
           <br>
           <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
-
         </div>
-
       </div>
     <% end %>
     <%= will_paginate @sumpoints %>
   </div>
   <!-- Sumpoints END -->
-  
-
-
-
-
 </div>
 
 

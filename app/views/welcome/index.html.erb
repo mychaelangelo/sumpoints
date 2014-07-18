@@ -1,5 +1,5 @@
 <div id="tag_cloud">
-  Top 10 Tags:<% tag_cloud Post.tag_counts_on(:tags).order('count desc').limit(10), %w[s m l] do |tag, css_class| %>
+  Top 10 Tags for posts:<% tag_cloud Sumpoint.tag_counts_on(:tags).order('count desc').limit(10), %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: "label label-default" %>
   <% end %>
 </div>
@@ -13,11 +13,17 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h4><%= sumpoint.body %></h4>
-          <small>Posted by <%= sumpoint.user.name %></small> via 
-          <%= link_to sumpoint.post.title, sumpoint.post %>
+          <small>
+            Posted by <%= sumpoint.user.name %> via 
+            <%= link_to sumpoint.post.title, sumpoint.post %>
+          </small>
           <br>
           <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
+          <small>
+            Tags: <%= raw sumpoint.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+          </small>
         </div>
+
       </div>
     <% end %>
     <%= will_paginate @sumpoints %>

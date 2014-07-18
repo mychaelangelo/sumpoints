@@ -1,5 +1,11 @@
 <div class="nested-fields">
-  <%= f.label :sumpoint %>
-  <%= f.text_field :body, class: 'form-control' %>
-  <%= link_to_remove_association "remove sumpoint", f %>
+  <div class="panel panel-default">
+     <div class="panel-body">
+      <%= f.label :sumpoint %>
+      <%= f.text_field :body, class: 'form-control' %><br>
+      <%= f.label :tag_list, "Tags (separated by commas)" %>
+      <%= f.text_field :tag_list, class: 'form-control' %>
+      <%= link_to_remove_association "remove sumpoint", f %>
+    </div>
+  </div>
 </div>

@@ -20,12 +20,7 @@ require 'faker'
 end
 users = User.all
 
-# Create Formats
-Format.create(name: 'articles')
-Format.create(name: 'books')
-Format.create(name: 'videos')
-Format.create(name: 'audio')
-formats = Format.all
+
 
 
 
@@ -35,9 +30,7 @@ formats = Format.all
   post = Post.create(
     user: users.sample,
     title: Faker::Lorem.sentence,
-    url: Faker::Internet.url,
-    tag_list: [Faker::Lorem.word, Faker::Lorem.word, Faker::Lorem.word],
-    format: formats.sample
+    url: Faker::Internet.url
   )
   # set the created_at to a time within the past year
   post.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
@@ -50,7 +43,8 @@ posts = Post.all
   sumpoint = Sumpoint.create(
     post: posts.sample,
     user: users.sample,
-    body: Faker::Lorem.sentence 
+    body: Faker::Lorem.sentence,
+    tag_list: [Faker::Lorem.word, Faker::Lorem.word, Faker::Lorem.word]
   )
   sumpoint.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
   sumpoint.update_rank

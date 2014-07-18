@@ -82,7 +82,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :user_id, :url, :format_id, :tag_list, sumpoints_attributes: [:id, :body, :_destroy])
+    params.require(:post).permit(:title, :user_id, :url, sumpoints_attributes: [:id, :body, :tag_list, :_destroy])
   end
 
 end

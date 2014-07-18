@@ -1,4 +1,7 @@
 class Sumpoint < ActiveRecord::Base
+  # for tagging
+  acts_as_taggable
+  
   belongs_to :post
   belongs_to :user
 
@@ -30,6 +33,12 @@ class Sumpoint < ActiveRecord::Base
     age = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) # 1 day in seconds
     new_rank = sum_likes + age
     update_attribute(:rank, new_rank)
+  end
+
+  private
+
+  def sumpoint_params
+    params.require(:post).permit(:title, :user_id, :url, sumpoints_attributes: [:id, :body, :tag_list, :_destroy])
   end
 
 end

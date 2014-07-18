@@ -12,47 +12,27 @@
     </div>
   <% end %>
   <!-- Error display box END -->
-
-
-  <%= form_group_tag(post.errors[:title]) do %>
-    <%= f.label :Title %>
-    <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
-  <% end %>
   
-  <%= form_group_tag(post.errors[:url]) do %>
-    <%= f.label :url %>
-    <%= f.url_field :url, class: 'form-control', placeholder: "Enter source URL" %>
-  <% end %>
-
-  <!-- Select Format Type (1 is Article, 2 is Book, 3 is Video, and 4 is Audio) -->
-  <%= form_group_tag(post.errors[:format_id]) do %>
-    <%= f.radio_button :format_id, 1 %> 
-    <%= f.label :Article %>
-
-    <%= f.radio_button :format_id, 2 %> 
-    <%= f.label :Book %>
-
-    <%= f.radio_button :format_id, 3 %> 
-    <%= f.label :Video %>
-
-    <%= f.radio_button :format_id, 4 %> 
-    <%= f.label :Audio %>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :tag_list, "Tags" %>
-    <%= f.text_field :tag_list, class: 'form-control', placeholder: "Enter a tags and separate with comma" %>
-  </div>
-
   <!-- Sum points section -->
   <%= f.simple_fields_for :sumpoints do |sumpoint| %>
     <%= render 'sumpoint_fields', :f => sumpoint %>
   <% end %>
   <div class="links">
-    <%= link_to_add_association 'Add sumpoint', f, :sumpoints %>
+    <%= link_to_add_association 'Click to Add SumPoint', f, :sumpoints %>
   </div>
   <hr>
   <!-- Sumpoint section end -->
+
+  <%= form_group_tag(post.errors[:title]) do %>
+    <%= f.label "Title of source" %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Enter source title" %>
+  <% end %>
+  
+  <%= form_group_tag(post.errors[:url]) do %>
+    <%= f.label "Source url" %>
+    <%= f.url_field :url, class: 'form-control', placeholder: "Enter source URL" %>
+  <% end %>
+
 
   
   <div class="form-group">

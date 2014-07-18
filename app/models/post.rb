@@ -2,7 +2,6 @@ class Post < ActiveRecord::Base
   
   has_many :sumpoints, dependent: :destroy # the dependent means if we delete post, it deletes sumpoints too
   belongs_to :user
-  belongs_to :format
   has_many :postvotes, dependent: :destroy
   has_many :followedposts, dependent: :destroy
   
@@ -21,7 +20,6 @@ class Post < ActiveRecord::Base
   # Validating inputs (can submit post without a sumpoint)
   validates :title, presence: true
   validates_format_of :url, :with => URI::regexp(%w(http https))
-  validates :format_id, presence: true
   validates :user, presence: true
   validates_presence_of :sumpoints
 

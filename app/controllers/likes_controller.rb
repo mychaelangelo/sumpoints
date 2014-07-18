@@ -9,7 +9,7 @@ class LikesController < ApplicationController
   end
 
   def down_like
-    update_like(-1)
+    update_like(-1) 
     redirect_to :back
   end
 

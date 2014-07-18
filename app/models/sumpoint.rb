@@ -13,7 +13,7 @@ class Sumpoint < ActiveRecord::Base
   end
 
   def down_likes
-    likes.where(value: -1).count
+    likes.where(value: -1).count 
   end
 
   def sum_likes 

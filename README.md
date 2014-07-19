@@ -7,3 +7,5 @@
 
 - improve post ranking formula
 - any user can add sumpoint
+
+Omniauth tutorial used - http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/

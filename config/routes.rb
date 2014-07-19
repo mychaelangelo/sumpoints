@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
   
-  get 'sumpoints/index'
 
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+
+  match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
   # App always needs a root path to work on Heroku
   # this will be the default page for the app
   root to: 'welcome#index'
   get 'about' => 'welcome#about'
 
-
+  get 'sumpoints/index'
 
   # Path to view latest posts
   get "posts/latest" => "posts#latest"
 
 
-  
 
   # Paths for tags
   get 'tags/:tag' => 'welcome#index', as: :tag

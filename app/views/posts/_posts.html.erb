@@ -26,11 +26,9 @@
     <!-- Footer for Post -->
     <div class="panel-footer">
       <small>
-        <span class="label label-info"><%= pluralize(post.points, 'Point') %></span> |
-        Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> in 
-        ** |
+        Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %>
         Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> |
-        <%= link_to pluralize(post.sumpoints.count,'SumPoint'), post %>
+        
       </small>
     </div>
 

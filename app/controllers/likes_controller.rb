@@ -2,7 +2,6 @@ class LikesController < ApplicationController
   before_action :load_sumpoint_and_like
 
   # see postvotes_controller to see how to include authorization for likes
-
   def up_like
     update_like(1)
     redirect_to :back
@@ -15,11 +14,13 @@ class LikesController < ApplicationController
 
   private
 
+  # Grab the sumpoint object, then seek out 'like' for current user if he already made one
   def load_sumpoint_and_like
     @sumpoint = Sumpoint.find(params[:sumpoint_id])
     @like = @sumpoint.likes.where(user_id: current_user.id).first
   end
 
+  # Update the like with new value or if non-existant like create one and save it to DB
   def update_like(new_value)
     if @like # update it
       authorize @like, :update? # only members can update the likes on sumpoints
@@ -30,9 +31,6 @@ class LikesController < ApplicationController
       @like.save
     end
   end
-
-
-
 
 
 

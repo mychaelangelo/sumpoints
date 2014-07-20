@@ -10,6 +10,7 @@ class Sumpoint < ActiveRecord::Base
   # Default ordering of sumpoints is by rank value
   default_scope { order ('rank DESC') }
 
+
   ### LIKES/DISLIKES SECTION
   def up_likes
     likes.where(value: 1).count

@@ -1,0 +1,11 @@
+<h3>Posts I'm Following</h3>
+(add function to filter by tags)
+(also paginate)
+<hr>
+<b>All Posts Page (Order by Date)</b>
+<br><br>
+<% @followed_posts.each do |post| %>
+  <ul>
+    <li><%= post.title %></li>
+  </ul>
+<% end %>

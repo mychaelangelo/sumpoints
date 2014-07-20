@@ -23,6 +23,24 @@ class UsersController < ApplicationController
     end
   end
 
+  # Function provides all liked Sumpoints of a user
+  def my_likes
+    @liked_sumpoints = []
+    @likes = Like.where(user_id: current_user, value: 1)
+    @likes.each do |like|
+      @liked_sumpoints << like.sumpoint
+    end
+  end
+
+  # Function provides all posts a user is following
+  def my_follows
+    @followed_posts = []
+    @follows = Followedpost.where(user_id: current_user)
+    @follows.each do |follow|
+      @followed_posts << follow.post
+    end
+  end
+
  private
 
   # -- for the omniauth tutorial

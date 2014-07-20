@@ -15,26 +15,23 @@ Rails.application.routes.draw do
   # Path to view latest posts
   get "posts/latest" => "posts#latest"
 
-
-
   # Paths for tags
   get 'tags/:tag' => 'welcome#index', as: :tag
 
   # routes for posts (index, show, new, edit)
   resources :posts do
-    # post vote routes
+    # post vote routes (NOTE!! will have to remove voting for posts! so code below wont be needed)
     get '/up-postvote' => 'postvotes#up_postvote', as: :up_postvote
     get '/down-postvote' => 'postvotes#down_postvote', as: :down_postvote
 
     # following a post
     resources :followedposts, only: [:create, :destroy]
 
+    # Sumpoints are nested under posts i.e. /posts/sumpoints
     resources :sumpoints do
       get '/up-like' => 'likes#up_like', as: :up_like
       get '/down-like' => 'likes#down_like', as: :down_like
     end
-
-
   end
 
   # paths for users
@@ -43,6 +40,8 @@ Rails.application.routes.draw do
   # routes for sumpoints
   resources :sumpoints
 
-
+  # for user bookmarks
+  get "/users/my_likes"
+  get "users/my_follows"
 
 end

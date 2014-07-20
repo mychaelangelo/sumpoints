@@ -1,6 +1,5 @@
 <% if policy(Followedpost.new).create? %>
 
-  <div class="follow">
     <% if followedpost = current_user.followed_post(post) %>
       <%= link_to [post, followedpost], class: 'btn btn-danger', method: :delete do %>
         <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfollow Post
@@ -12,6 +11,5 @@
       <% end %>
 
     <% end %>
-  </div>
 
 <% end %>

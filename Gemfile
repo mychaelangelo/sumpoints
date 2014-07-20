@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'  
+  gem 'factory_girl'
 end
 
 # Use Postgres as the database for Active Record

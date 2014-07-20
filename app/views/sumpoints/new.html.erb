@@ -1,0 +1,8 @@
+Contribute SumPoint to <b><%= @post.title %></b>
+<hr>
+
+<%= form_for @sumpoint do |s| %>
+  <%= s.text_field :body %>
+  <%= s.submit "Add", class: "btn btn-primary" %>
+<% end %>
+

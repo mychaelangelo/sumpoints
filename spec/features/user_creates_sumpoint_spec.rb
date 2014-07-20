@@ -1,8 +1,12 @@
 require 'rails_helper'
 
-feature 'User creates Post' do
+feature 'User creates SumPoint' do
   scenario 'Successfuly' do
-    visit new_post_path
   end
-  
+
 end
+
+
+  
+
+

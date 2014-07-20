@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     end
 
     # Authorise the post
-    authorize @post
+    authorize @post 
 
     if @post.save
       flash[:notice] = "Post was saved."

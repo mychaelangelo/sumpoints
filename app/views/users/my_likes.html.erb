@@ -1,0 +1,11 @@
+<h3>My Likes</h3>
+(add function to filter by tags)
+(also paginate)
+<hr>
+<b>All SumPoints Page (Order by Date)</b>
+<br><br>
+<% @liked_sumpoints.each do |sumpoint| %>
+  <ul>
+    <li><%= sumpoint.body %></li>
+  </ul>
+<% end %>

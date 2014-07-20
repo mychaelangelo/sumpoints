@@ -2,15 +2,16 @@ class LikesController < ApplicationController
   before_action :load_sumpoint_and_like
 
   # see postvotes_controller to see how to include authorization for likes
-  def up_like
+  def create
     update_like(1)
     redirect_to :back
   end
 
-  def down_like
+  def destroy
     update_like(-1) 
     redirect_to :back
   end
+
 
   private
 

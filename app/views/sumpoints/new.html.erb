@@ -1,8 +1,23 @@
-Contribute SumPoint to <b><%= @post.title %></b>
+<h3><%= @post.title %></h3>
 <hr>
 
-<%= form_for @sumpoint do |s| %>
-  <%= s.text_field :body %>
-  <%= s.submit "Add", class: "btn btn-primary" %>
-<% end %>
+<%= form_for [@post, @sumpoint] do |s| %>
+  <div class="nested-fields">
+    <div class="panel panel-default">
+      <div class="panel-body"> 
+        <%= s.label "Add SumPoint" %>
+        <%= s.text_field :body, class: 'form-control', placeholder: "Enter a Sumpoint" %>
+        <br>
+        <%= s.label :tag_list, "Tags"  %>
+        <%= s.text_field :tag_list, class: 'form-control', placeholder: "Enter associated tags (separate by comma)" %>
+        <br>
+        <div class="form-group">
+          <%= s.submit "Add", class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %> 
+
+
 

@@ -8,14 +8,13 @@ class SumpointsController < ApplicationController
 
   def new
     @post = Post.find(params[:post_id])
-    # Only want to show the sumpoints that belong to user
     @sumpoint = Sumpoint.new
     authorize @sumpoint
   end
 
   def create
-    @post = Post.find(params[:id])
-    @sumpoint = current_user.sumpoints.build[:body, :post_id]
+    @post = Post.find(params[:post_id])
+    @sumpoint = current_user.sumpoints.build(sumpoint_params)
     @sumpoint.post = @post
 
     authorize @sumpoint
@@ -31,7 +30,7 @@ class SumpointsController < ApplicationController
   private
 
   def sumpoint_params
-    params.require(:sumpoint).permit(:body, :post_id, :user_id)
+    params.require(:sumpoint).permit(:body, :tag_list)
   end
 
 

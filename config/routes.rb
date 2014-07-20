@@ -29,8 +29,7 @@ Rails.application.routes.draw do
 
     # Sumpoints are nested under posts i.e. /posts/sumpoints
     resources :sumpoints do
-      get '/up-like' => 'likes#up_like', as: :up_like
-      get '/down-like' => 'likes#down_like', as: :down_like
+      resources :likes, only: [:create, :destroy]
     end
   end
 

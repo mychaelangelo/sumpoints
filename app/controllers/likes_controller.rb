@@ -1,7 +1,6 @@
 class LikesController < ApplicationController
   before_action :load_sumpoint_and_like
 
-  # see postvotes_controller to see how to include authorization for likes
   def create
     update_like(1)
     redirect_to :back

@@ -20,9 +20,6 @@ Rails.application.routes.draw do
 
   # routes for posts (index, show, new, edit)
   resources :posts do
-    # post vote routes (NOTE!! will have to remove voting for posts! so code below wont be needed)
-    get '/up-postvote' => 'postvotes#up_postvote', as: :up_postvote
-    get '/down-postvote' => 'postvotes#down_postvote', as: :down_postvote
 
     # following a post
     resources :followedposts, only: [:create, :destroy]

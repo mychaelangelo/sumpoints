@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
+
   # App always needs a root path to work on Heroku
   # this will be the default page for the app
   root to: 'welcome#index'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 
   # routes for posts (index, show, new, edit)
   resources :posts do
+    get :autocomplete_post_url, :on => :collection
 
     # following a post
     resources :followedposts, only: [:create, :destroy]

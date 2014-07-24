@@ -9,7 +9,7 @@ class LikesController < ApplicationController
   def destroy
     update_like(-1) 
     redirect_to :back
-  end
+  end 
 
 
   private
@@ -24,11 +24,12 @@ class LikesController < ApplicationController
   def update_like(new_value)
     if @like # update it
       authorize @like, :update? # only members can update the likes on sumpoints
-      @like.update_attribute(:value, new_value)
+      @like.value = new_value
+      @like.save!
     else # create new like
       @like = current_user.likes.build(value: new_value, sumpoint: @sumpoint)
       authorize @like, :create? # only members can like sumpoints
-      @like.save
+      @like.save!
     end
   end
 

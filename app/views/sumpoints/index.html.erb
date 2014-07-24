@@ -1,7 +1,39 @@
-<b>All SumPoints Page (Order by Date)</b>
+<b>All SumPoints Page (Need to Order by Date)</b>
+<hr>
+<div class="row">
+  <!-- Sumpoints area-->
+  <div class="col-md-12">
+    <% @sumpoints.each do |sumpoint| %>
+      <div class="panel panel-default">
 
-<% @sumpoints.each do |sumpoint| %>
-  <ul>
-    <li><%= sumpoint.body %></li>
-  </ul>
-<% end %>
+        <div class="panel-body">
+
+          <blockquote><%= sumpoint.body %></blockquote>
+
+            Posted by <%= sumpoint.user.name %> via 
+            <%= link_to sumpoint.post.title, sumpoint.post %>  |
+
+            <%= link_to new_post_sumpoint_path(sumpoint.post) do %>
+              <button type="button" class="btn btn-info btn-xs">
+                <span class="fa fa-plus"></span> Add SumPoint
+              </button>
+            <% end %>
+        
+          <br>
+          <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
+          <small>
+            Tags: <%= raw sumpoint.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+          </small>
+        </div>
+
+      </div>
+    <% end %>
+    
+  </div>
+  <!-- Sumpoints END -->
+  <%= will_paginate @sumpoints %>
+</div>
+
+
+
+

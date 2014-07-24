@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require_tree .
 //= require cocoon
+//= require autocomplete-rails

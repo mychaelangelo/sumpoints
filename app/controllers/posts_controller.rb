@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  
+  # creates action 'autocomplete_post_url' in this controller
+  autocomplete :post, :url
+
   def index
     # if enter url like http://localhost:3000/tags/motivation then filter
     if params[:tag]

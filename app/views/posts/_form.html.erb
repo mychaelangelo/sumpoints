@@ -31,7 +31,8 @@
   
   <%= form_group_tag(post.errors[:url]) do %>
     <%= f.label "Source url" %>
-    <%= f.url_field :url, class: 'form-control', placeholder: "Enter source URL" %>
+    <!--<%= f.url_field :url, class: 'form-control', placeholder: "Enter source URL" %>-->
+    <%= f.autocomplete_field :url, autocomplete_post_url_posts_path, 'data-auto-focus' => true, class: 'form-control' %>
   <% end %>
 
 

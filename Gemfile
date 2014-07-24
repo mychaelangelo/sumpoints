@@ -74,3 +74,6 @@ gem "font-awesome-rails"
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+# Autocomplete gem
+gem 'rails3-jquery-autocomplete'

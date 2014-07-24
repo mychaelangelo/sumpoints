@@ -1,43 +1,20 @@
 <div id="tag_cloud">
-  Top 10 Tags:<% tag_cloud Sumpoint.tag_counts_on(:tags).order('count desc').limit(10), %w[s m l] do |tag, css_class| %>
+  Popular Tags:<% tag_cloud Sumpoint.tag_counts_on(:tags).order('count desc').limit(15), %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: "label label-default" %>
   <% end %>
 </div>
 
 <hr>
 
-<div class="row">
+
   <!-- Sumpoints area-->
   <div class="col-md-12">
-    <% @sumpoints.each do |sumpoint| %>
-      <div class="panel panel-default">
-
-        <div class="panel-body">
-
-          <blockquote><%= sumpoint.body %></blockquote>
-
-            Posted by <%= sumpoint.user.name %> via 
-            <%= link_to sumpoint.post.title, sumpoint.post %>  |
-
-            <%= link_to new_post_sumpoint_path(sumpoint.post) do %>
-              <button type="button" class="btn btn-info btn-xs">
-                <span class="fa fa-plus"></span> Add SumPoint
-              </button>
-            <% end %>
-        
-          <br>
-          <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
-          <small>
-            Tags: <%= raw sumpoint.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-          </small>
-        </div>
-
-      </div>
-    <% end %>
-    
+    <%= render partial: 'sumpoints/sumpoints', locals: { sumpoints: @sumpoints } %>
   </div>
   <!-- Sumpoints END -->
-  <%= will_paginate @sumpoints %>
+  <div class="col-md-12">
+    <%= will_paginate @sumpoints %>
+  </div>
 </div>
 
 

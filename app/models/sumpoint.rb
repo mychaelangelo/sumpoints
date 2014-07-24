@@ -8,8 +8,8 @@ class Sumpoint < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
 
-  # Default ordering of sumpoints is by rank value
-  default_scope { order ('rank DESC') }
+  # Default ordering of sumpoints is by date created
+  default_scope { order ('created_at DESC') }
 
 
   ### LIKES/DISLIKES SECTION

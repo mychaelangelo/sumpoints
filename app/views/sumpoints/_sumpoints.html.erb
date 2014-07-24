@@ -1,0 +1,22 @@
+<% sumpoints.each do |sumpoint| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <blockquote><%= sumpoint.body %></blockquote>
+        <small>Posted by <%= sumpoint.user.name %> <%= time_ago_in_words(sumpoint.created_at) %> ago
+        via: 
+        </small> 
+        <%= link_to sumpoint.post.title, sumpoint.post %>  |
+
+        <%= link_to new_post_sumpoint_path(sumpoint.post) do %>
+          <button type="button" class="btn btn-info btn-xs">
+            <span class="fa fa-plus"></span> Add SumPoint
+          </button>
+        <% end %>
+      <br>
+      <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
+      <small>
+        Tags: <%= raw sumpoint.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </small>
+    </div>
+  </div>
+<% end %>

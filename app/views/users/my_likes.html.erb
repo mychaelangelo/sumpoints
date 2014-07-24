@@ -1,11 +1,12 @@
-<h3>My Likes</h3>
-(add function to filter by tags)
-(also paginate)
+Will need to filter by tags somehow
+
 <hr>
-<b>All SumPoints Page (Order by Date)</b>
-<br><br>
-<% @liked_sumpoints.each do |sumpoint| %>
-  <ul>
-    <li><%= sumpoint.body %></li>
-  </ul>
-<% end %>
+
+<div class="row">
+  <!-- Sumpoints area-->
+  <div class="col-md-12">
+    <%= render partial: 'sumpoints/sumpoints', locals: { sumpoints: @liked_sumpoints } %>
+  </div>
+  <!-- Sumpoints END -->
+
+</div>

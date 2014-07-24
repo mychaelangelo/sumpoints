@@ -1,10 +1,10 @@
 <%if policy(Sumpoint.new).create? %>
   <small>
     <!-- like/dislike area -->
-    <%= link_to " ", post_sumpoint_likes_path(post, sumpoint), class: 'glyphicon glyphicon-thumbs-up', method: :post %> 
+    <%= link_to " ", post_sumpoint_likes_path(post, sumpoint), class: 'fa fa-thumbs-o-up', method: :post %> 
     <small><%= sumpoint.up_likes %></small>
-    &nbsp;&nbsp;
-    <%= link_to " ", post_sumpoint_like_path(post, sumpoint, current_user.id), class: 'glyphicon glyphicon-thumbs-down', method: :delete %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to " ", post_sumpoint_like_path(post, sumpoint, current_user.id), class: 'fa fa-thumbs-o-down', method: :delete %>
     <small><%= sumpoint.down_likes %></small>
     <!--end of likes -->
 

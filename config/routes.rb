@@ -21,7 +21,6 @@ Rails.application.routes.draw do
 
   # routes for posts (index, show, new, edit)
   resources :posts do
-    get :autocomplete_post_url, :on => :collection
 
     # following a post
     resources :followedposts, only: [:create, :destroy]

@@ -4,4 +4,6 @@ class SumpointPolicy < ApplicationPolicy
     true
   end
 
+
+
 end

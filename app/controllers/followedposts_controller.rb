@@ -6,7 +6,7 @@ class FollowedpostsController < ApplicationController
     authorize followedpost
 
     if followedpost.save 
-      flash[:notice] = "Followed post."
+      flash[:notice] = "You have followed this post. You will be notified via email when a new SumPoint is added."
       redirect_to @post
     else
       flash[:error] = "Unable to follow post. Please try again."
@@ -21,7 +21,6 @@ class FollowedpostsController < ApplicationController
     authorize followedpost
 
     if followedpost.destroy
-      flash[:notice] = "You have unfollowed this post."
       redirect_to @post
     else
       flash[:error] = "Unable to unfollow. Please try again."

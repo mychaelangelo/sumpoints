@@ -1,11 +1,7 @@
-<div id="tag_cloud">
-  Popular Tags:<% tag_cloud Sumpoint.tag_counts_on(:tags).order('count desc').limit(15), %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: "label label-default" %>
-  <% end %>
+<div class="col-lg-12 text-center">
+    <h3 class="section-subheading text-muted">Latest SumPoints</h3>
 </div>
-
 <hr>
-
 <div class="row">
   <!-- Sumpoints area-->
   <div class="col-md-12">

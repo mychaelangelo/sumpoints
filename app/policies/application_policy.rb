@@ -25,8 +25,9 @@ class ApplicationPolicy
   end
 
   def update?
-    # user must be logged in, and must either be post creator or admin
-    user.present? && (record.user == user || user.role?(:admin))
+    # only admins can amend or delete posts
+    user.present? && user.role?(:admin)
+    # user.present? && (record.user == user || user.role?(:admin))
   end
 
   def edit?

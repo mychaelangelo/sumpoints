@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
   
-  # creates action 'autocomplete_post_url' in this controller
-  autocomplete :post, :url
-
   def index
     # if enter url like http://localhost:3000/tags/motivation then filter
     if params[:tag]
@@ -60,6 +57,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     authorize @post
+    @post.sumpoints.each do |sumpoint|
+      authorize sumpoint
+    end
+
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was updated."
       redirect_to @post

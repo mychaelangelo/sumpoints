@@ -40,5 +40,6 @@ Rails.application.routes.draw do
   # for user bookmarks
   get "/users/my_likes"
   get "users/my_follows"
+  get "users/library"
 
 end

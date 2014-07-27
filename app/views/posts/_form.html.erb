@@ -3,7 +3,8 @@
   <!-- Error display box -->
   <% if post.errors.any? %>
     <div class="alert alert-danger">
-      <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
+      <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>  
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <ul>
         <% post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>

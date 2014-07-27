@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   #default_scope { order('created_at DESC') }
 
   # Order posts by rank
-  default_scope { order('rank DESC') }
+  default_scope { order('created_at DESC') }
 
   # Validating inputs (can submit post without a sumpoint)
   validates :title, presence: true

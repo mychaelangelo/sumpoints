@@ -1,12 +1,12 @@
 <% if policy(Followedpost.new).create? %>
 
     <% if followedpost = current_user.followed_post(post) %>
-      <%= link_to [post, followedpost], class: 'btn btn-danger', method: :delete do %>
+      <%= link_to [post, followedpost], class: 'btn btn-danger btn-xs', method: :delete do %>
         <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfollow Post
       <% end %>
 
     <% else %>
-      <%= link_to [post, Followedpost.new], class: 'btn btn-primary', method: :post do %>
+      <%= link_to [post, Followedpost.new], class: 'btn btn-primary btn-xs', method: :post do %>
         <i class="glyphicon glyphicon-star"> </i>&nbsp; Follow Post
       <% end %>
 

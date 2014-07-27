@@ -1,0 +1,43 @@
+<div class="col-lg-12 text-center">
+    <h3 class="section-subheading text-muted">Library View</h3>
+    <h4 class="section-subheading text-muted">Collection of All Liked SumPoints</h4>
+</div>
+<hr>
+<!-- Start of My Library Panels -->
+<div class="panel-group" id="accordion">
+
+  <% @all_tags.each do |tag| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= tag.id %>">
+            <%= tag.name.capitalize %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse<%= tag.id %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          
+          <ul>
+            <% @liked_sumpoints.each do |sumpoint| %>
+              <% if sumpoint.tags.include?(tag) %>
+                <!-- start view of Sumpoint -->
+                <blockquote>
+                  <%= sumpoint.body %>
+                  <footer>
+                    Source: <%= link_to sumpoint.post.title, sumpoint.post %>
+                  </footer>
+                </blockquote>
+
+
+              <% end %>
+
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+</div>

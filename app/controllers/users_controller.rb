@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @liked_sumpoints = []
     @likes = Like.where(user_id: current_user, value: 1)
     @likes.each do |like|
-      @liked_sumpoints << like.sumpoint
+      @liked_sumpoints << like.sumpoint 
     end
   end
 
@@ -39,6 +39,31 @@ class UsersController < ApplicationController
     @follows.each do |follow|
       @followed_posts << follow.post
     end
+  end
+
+  def library
+    # get all likes
+    @liked_sumpoints = []
+    @likes = Like.where(user_id: current_user, value: 1)
+    
+    # get all sumpoints from the likes data
+    @likes.each do |like|
+      @liked_sumpoints << like.sumpoint
+    end
+
+    # get all tags from the liked_sumpoints
+    @all_tags = []
+    @liked_sumpoints.each do |sumpoint|
+      sumpoint.tags.each do |tag|
+        @all_tags << tag
+      end
+    end
+    # remove duplicates from array of tags
+    @all_tags.uniq!
+    # sort tags by their name, but sort when they are downcased! otherwise might not sort 
+    # properly
+    @all_tags.sort_by! { |t| t.name.downcase }
+
   end
 
  private

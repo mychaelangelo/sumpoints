@@ -3,7 +3,6 @@
 </div>
 <hr>
 <% @followed_posts.each do |post| %>
-  <ul>
-    <li><%= post.title %></li>
-  </ul>
+  <%= render partial: 'posts/post', locals: { post: post } %>
 <% end %>
+

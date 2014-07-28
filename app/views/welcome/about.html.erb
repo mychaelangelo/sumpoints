@@ -1,42 +1,84 @@
 <div class="container">
   <div class="row">
       <div class="col-lg-12 text-center">
-          <h2>SumPoints</h2>
+          <h2>SumPoints <span class="label label-default">beta</span></h2>
           <h4 class="section-subheading text-muted">A Place to Share and Bookmark Your Favourite Summary Points</h4>
       </div>
   </div>
+  <hr>
   <div class="row text-center">
       <div class="col-md-4">
           <span class="fa-stack fa-4x">
               <i class="fa fa-square fa-stack-2x text-inverse"></i>
-              <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
+              <i class="fa fa-search fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Read or View Media</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+
+          <h4 class="service-heading">1. Find Something Cool</h4>
+          <p class="text-muted">
+            You've just read an <a href="http://www.newyorker.com/">awesome article</a> or a watched a brilliant <a href="http://www.ted.com/">TED</a> talk and there are a few key ideas you would like to save for future reference.
+          </p>
       </div>
       <div class="col-md-4">
           <span class="fa-stack fa-4x">
               <i class="fa fa-square fa-stack-2x text-inverse"></i>
               <i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">SumPoint It</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">2. SumPoint It</h4>
+          <p class="text-muted">
+            SumPoints is here to help you store those ideas. A <a href="/sumpoints">sumpoint</a> is simply a summary point of a key idea or concept you
+            come across. The shorter it is, the better!
+          </p>
       </div>
       <div class="col-md-4">
           <span class="fa-stack fa-4x">
               <i class="fa fa-square fa-stack-2x text-inverse"></i>
               <i class="fa fa-thumbs-o-up fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Tag and Save</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <h4 class="service-heading">3. Tag and Share It</h4>
+          <p class="text-muted">
+            Tag your sumpoints for future reference. When you like a sumpoint, it is added to your  
+            <a href="users/library">library</a> which can be browsed by different tags. 
+          </p>
       </div>
   </div>
+  <hr>
+  <!-- Sign up Button Area -->
   <div class="row">
     <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Sign Up Buttons</h2>
-        facebookbutton/ twitter button
+      <a href="/users/sign_up" class="btn btn-lg btn-primary">Sign Up</a>
+      <br>
+      <br>
+      <!-- Button trigger modal -->
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-cogs"></i>
+        About the App
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">SumPoints</h4>
+            </div>
+            <div class="modal-body">
+              <p>
+                Hello world! My name is Michael and I wrote this app over 3 weeks while learning how to code at
+                <a href="http://bloc.io/" target="_blank">Bloc</a>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal END! -->
     </div>
   </div>
 
+
 </div>
+
 

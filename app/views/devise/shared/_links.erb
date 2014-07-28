@@ -1,3 +1,17 @@
+ <%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <a class="btn btn-block btn-social btn-<%= provider.to_s %>" href="<%= omniauth_authorize_path('user', provider) %>">
+      <% if provider.to_s.include? 'google_oauth2' %>
+      <i class="fa fa-<%= [provider.to_s.split('_')[0], '-plus'].join %>"></i>
+      <% else %>
+      <i class="fa fa-<%= provider.to_s %>"></i>
+      Sign in with <%= provider.to_s.titleize.split[0] %>
+      <% end %> 
+    </a>
+ <% end -%>
+ <% end -%>
+
+
 <%- if controller_name != 'sessions' %>
   <%= link_to "Sign in", new_session_path(resource_name) %><br />
 <% end -%>
@@ -18,8 +32,4 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>
+ 

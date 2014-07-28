@@ -32,10 +32,10 @@
 
               <!-- if user can create new post, link to new post, otherwise redirect to signup -->
               <li class="<%= 'active' if current_page?(new_post_path) %>">
-                <%if policy(Post.new).create? %>
+                <%if policy(Post.new).create? %> 
                   <%= link_to "Submit", new_post_path %>
                 <% else %>
-                  <%= link_to "Submit", new_user_registration_path %> 
+                  <%= link_to "Submit", new_user_session_path %> 
                 <% end %>               
               </li>
               <!-- end of if -->

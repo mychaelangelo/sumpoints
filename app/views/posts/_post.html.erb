@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+      <div>
+        <%= link_to post.title, post %>
+        
+          <%= link_to new_post_sumpoint_path(post) do %>
+            <button type="button" class="btn btn-info btn-xs">
+              <span class="fa fa-plus"></span> Add SumPoint
+            </button>
+          <% end %>
+        </div>
+
+        <% if policy(post).edit? %>
+          <%= link_to "Edit", edit_post_path(post), class: 'btn btn-success btn-xs' %>
+        <% end %>
+
+        <% if policy(post).destroy? %>
+          <%= link_to "Delete Post", post, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure you want to delete this post?'} %>
+        <% end %>
+        <br>
+        <small>
+          Posted by <b><%= post.user.name %></b> <%= time_ago_in_words(post.created_at) %> ago.
+        </small>
+    </div>
+</div>

@@ -11,6 +11,10 @@ class SumpointsController < ApplicationController
     authorize @sumpoint
   end
 
+  def show
+    @sumpoint = Sumpoint.find(params[:id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @sumpoint = current_user.sumpoints.build(sumpoint_params)

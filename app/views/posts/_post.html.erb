@@ -3,11 +3,25 @@
       <div>
         <%= link_to post.title, post %>
         
-          <%= link_to new_post_sumpoint_path(post) do %>
-            <button type="button" class="btn btn-info btn-xs">
-              <span class="fa fa-plus"></span> Add SumPoint
-            </button>
+
+
+          <!-- link for add Sumpoint will vary depending on if signed in or not -->
+          <%if policy(Sumpoint.new).create? %> 
+            <%= link_to new_post_sumpoint_path(post) do %>
+              <button type="button" class="btn btn-info btn-xs">
+                <span class="fa fa-plus"></span> Add SumPoint
+              </button>
+            <% end %>
+
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <button type="button" class="btn btn-info btn-xs">
+                <span class="fa fa-plus"></span> Add SumPoint
+              </button>
+            <% end %>
           <% end %>
+          <!-- end of Add Sumpoint Button -->
+
         </div>
 
         <% if policy(post).edit? %>

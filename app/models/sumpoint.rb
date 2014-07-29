@@ -11,6 +11,8 @@ class Sumpoint < ActiveRecord::Base
   # Default ordering of sumpoints is by date created
   default_scope { order ('created_at DESC') }
 
+  # After each SumPoint created, call method 'send_follow_emails'
+  after_create :send_follow_emails
 
   ### LIKES/DISLIKES SECTION
   def up_likes
@@ -41,6 +43,20 @@ class Sumpoint < ActiveRecord::Base
 
   def sumpoint_params
     params.require(:post).permit(:title, :user_id, :url, sumpoints_attributes: [:id, :body, :tag_list, :_destroy])
+  end
+
+  # Notify via email when new Sumpoint is created
+  def send_follow_emails
+    post.followedposts.each do |follow|
+      if should_receive_update_for?(follow)
+        FollowMailer.new_sumpoint(follow.user, post, self).deliver
+      end
+    end
+  end
+
+  # Email notifications should only be sent when (1) SumPoint is from other user and not self and (2) have permission to mail
+  def should_receive_update_for?(follow)
+    user_id != follow.user_id && follow.user.email_followed?
   end
 
 end

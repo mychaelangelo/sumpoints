@@ -1,0 +1,8 @@
+New SumPoint to "<%= @post.title %>"
+<%= "=" * (@post.title.length + 12) %>
+
+By: <%= @sumpoint.user.name %>
+
+<%= @sumpoint.body %>
+
+Visit online at: <%= post_url(@post, anchor: "sumpoint-#{@sumpoint.id}") %>

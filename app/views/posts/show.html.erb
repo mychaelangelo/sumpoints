@@ -20,21 +20,21 @@
 <!-- Sumpoints area-->
 <div class="col-md-12">
   <% @post.sumpoints.each do |sumpoint| %> 
-    <div class="panel panel-default">
+    <%= content_tag :div, class: 'media', id: "sumpoint-#{sumpoint.id}" do %>
+      <div class="panel panel-default">
+          <div class="panel-body">
 
-      <div class="panel-body">
+            <blockquote><%= sumpoint.body %></blockquote>
 
-        <blockquote><%= sumpoint.body %></blockquote>
-
-        <small>Posted by <b><%= sumpoint.user.name %></b> <%= time_ago_in_words(sumpoint.created_at) %> ago.</small>
-      
-        <br>
-        <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
-        <small>
-          Tags: <%= raw sumpoint.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-        </small>
+            <small>Posted by <b><%= sumpoint.user.name %></b> <%= time_ago_in_words(sumpoint.created_at) %> ago.</small>
+          
+            <br>
+            <%= render partial: 'likes/liker', locals: { post: sumpoint.post, sumpoint: sumpoint } %>
+            <small>
+              Tags: <%= raw sumpoint.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+            </small>
+          </div>
       </div>
-
-    </div>
+    <% end %>
   <% end %>
 </div>

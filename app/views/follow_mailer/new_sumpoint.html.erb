@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h4>New SumPoint to "<%= @post.title %>"</h4>
+    <blockquote>
+      <%= @sumpoint.body %>
+    </blockquote>
+    <small>
+      By: <%= @sumpoint.user.name %> <%= time_ago_in_words(@sumpoint.created_at) %> ago
+    </small>
+    <p>
+      <%= link_to "View SumPoint on site", post_url(@post, anchor: "sumpoint-#{@sumpoint.id}") %>
+    </p>
+  </body>
+</html>

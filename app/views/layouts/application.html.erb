@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
   <body>
     <div class="container">
@@ -88,7 +89,7 @@
                         <i class="fa fa-university"></i> Library View
                       <% end %>
                     </li>
-
+                   <li class="divider"></li>
                    <li>
                       <%= link_to edit_user_registration_path do %>
                         <span class="glyphicon glyphicon-user"></span> Account Settings

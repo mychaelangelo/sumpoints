@@ -16,7 +16,7 @@ SumPoints is an app that can help a user bookmark key points from an article, vi
 
  * User can like SumPoints (thereby storing them in their library).
 
- * User can follow Posts (allowing them to be notified when new SumPoints are added to a Post).
+ * User can follow Posts (allowing them to be notified by email when new SumPoints are added to a Post).
 
 ###Outstanding Issues to Fix###
 
@@ -24,8 +24,12 @@ SumPoints is an app that can help a user bookmark key points from an article, vi
 
  * Duplicate records (will need a method to check for duplicate posts so same source item is not posted twice)
 
+ * Search capability 
 
-###Adding images###
+ * Ability to mark Posts or SumPoints as private
+
+
+###App About Page###
 ![App Picture](http://i.imgur.com/dojFHy5.png)
 
 ### Ruby and Rails Versions ###

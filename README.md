@@ -31,6 +31,7 @@ SumPoints is an app that can help a user bookmark key points from an article, vi
 
 ###App About Page###
 ![App Picture](http://i.imgur.com/dojFHy5.png)
+###Library View of SumPoints User Likes###
 ![App Picture2](http://i.imgur.com/BNfAZl7.png)
 
 ### Ruby and Rails Versions ###
